@@ -30,7 +30,7 @@ def parse(argv):
 
     if moustache is None:
         if brac is None:
-            return [i.strip(","), for i in split(argv)]
+            return [i.strip(",") for i in split(argv)]
         else:
             lexer = split(argv[:brac.span()[0]])
             ret1 = [i.strip(",") for i in lexer]
@@ -52,7 +52,7 @@ def args_checker(args):
 
     if len(arg_list) == 0:
         print("** class name missing **")
-    elif arg_list[0] no in CLASSES:
+    elif arg_list[0] not in CLASSES:
         print("** class doesn't exist **")
     else:
         return arg_list
@@ -171,10 +171,10 @@ class HBNBCommand(cmd.Cmd):
                         obj = self.storage.all()[instance_id]
                         if arg_list[2] in type(obj).__dict__:
                             value_type = type(obj.__class__.__dict__[arg_list[2]])
-                            setattr(obj, arg_list[2], value_type(arg_list[3])
+                            setattr(obj, arg_list[2], value_type(arg_list[3]))
                         else:
-                        setattr(obj, arg_list[2], arg_list[3])
-                 else:
+                            setattr(obj, arg_list[2], arg_list[3])
+                else:
                     print("** no instance found **")
 
         self.storage.save()

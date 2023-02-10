@@ -37,7 +37,7 @@ class FileStorage:
         """
         serializes __objects to the JSON file(path: __file_path)
         """
-        with open(self.__file_path, mode="w") as f:
+        with open(self.__file__path, mode="w") as f:
             dict_storage = {}
             for k, v in self.__objects.items():
                 dict_storage[k] = v.to_dict()
@@ -50,7 +50,7 @@ class FileStorage:
         if the file doesn't exist, no exception should be raised
         """
         try:
-            with open(self.__file_path, encoding="utf-8") as f:
+            with open(self.__file__path, encoding="utf-8") as f:
                 for obj in json.load(f).values():
                     self.new(eval(obj["__class__"])(**obj))
         except FileNotFoundError:
