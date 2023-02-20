@@ -9,7 +9,7 @@ from datetime import datetime
 import os
 
 import models
-from models.base_models import BaseModel
+from models.base_model import BaseModel
 
 class TestBaseModel(unittest.TestCase):
     """
@@ -24,7 +24,7 @@ class TestBaseModel(unittest.TestCase):
         b = BaseModel()
         self.assertTrue(hasattr(b, "id"))
 
-     def test_str_representation(self):
+    def test_str_representation(self):
         """
         Checks if the string representation is appropriate
         """
